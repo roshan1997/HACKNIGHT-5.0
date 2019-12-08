@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  height:100vh;
+  width:100vw;
+  margin:0;
+  padding:0;
+}
+.Container {
+	 background-image: url('https://uc9268796981f237f9eddb1d8198.dl.dropboxusercontent.com/cd/0/get/At3_33L1z9AULcJUkOTip0q6T061OyU3vjPOJAFAkKDhJqlng7nq9gV_O0MshKmXQCkHUh7n2W_6u-Kn3A5W9FEMmYfbhg146pndUy8wZNnGW0nISQh1gkyHOOg2jHxv7Ao/file?dl=1#');
+	 background-position: center;
+	/* Center the image */
+	 background-repeat: no-repeat;
+	/* Do not repeat the image */
+	 background-size: cover;
+	/* Resize the background image to cover the entire container */
+	 width: 100%;
+	 height: 100%;
+	 overflow-x: hidden;
+	 display: flex;
+}
+ .Container .Transparent {
+	 width: 50%;
+	 height: 100%;
+}
+ .divider {
+	 height: 100%;
+	 width: 50%;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ .divider .dialog {
+	 background-color: white;
+	 border-radius: 10px;
+	 width: 420px;
+	 height: 80%;
+	 box-shadow: 0 0 20px 0px white;
+	 display: flex;
+	 flex-direction: column;
+}
+ .divider .dialog .logo {
+	 display: flex;
+	 flex-direction: row;
+	 align-items: center;
+	 justify-content: center;
+	 background-color: #06b3d1;
+	 border-radius: 80px;
+	 transform: translateY(-70px);
+	 margin: 30px;
+}
+ .divider .dialog .logo img {
+	 width: 60px;
+	 height: 60px;
+	 background-color: white;
+	 border-radius: 50%;
+	 padding: 5px;
+}
+ .divider .dialog .logo p {
+	 padding-left: 5px;
+	 font-size: 28px;
+	 color: white;
+}
+ .divider .dialog .UploadFile {
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 justify-content: center;
+}
+ .divider .dialog .UploadFile img {
+	 height: 220px;
+	 width: 250px;
+}
+ .divider .dialog .UploadFile .smallText {
+	 font-size: 15px;
+	 margin: 5px;
+}
+ .divider .dialog .UploadFile .bigText {
+	 font-size: 25px;
+	 margin: 5px;
+}
+ .divider .dialog .UploadFile .upload-btn-wrapper {
+	 position: relative;
+	 overflow: hidden;
+	 display: inline-block;
+}
+ .divider .dialog .UploadFile .btn {
+	 border: 2px solid #06b3d1;
+	 color: white;
+	 background-color: #ff0083;
+	 padding: 8px 20px;
+	 border-radius: 8px;
+	 font-size: 20px;
+	 font-weight: bold;
+}
+ /* .divider .dialog .UploadFile .upload-btn-wrapper input[type=file] {
+	 font-size: 100px;
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+	 opacity: 0;
+} */
+</style>
+</head>
+<body>
+<div class="Container">
+  <div class="Transparent">
+  </div>
+  <div class="divider">
+    <div class="dialog">
+      <div class="logo">
+        <img src="https://uc2f3d3adf45cd7e1fe764a330f5.dl.dropboxusercontent.com/cd/0/get/At1iBT83Dg6O2CLow9HE9IbnHMsLDohoAU1iZMSHozQgSBiYcqpubr7qY6fbUX6HxxJ8a6nwazhe6ulWndOzXhHaEoSojqArX0jTnfVPek5dFDNMr54xABabH6oEahd8pQ4/file?dl=1#">
+        <p>Pneumonia Detection</p>
+      </div>
+      <div class="UploadFile">
+        <img id='image' src='https://uc10741b01e499c92fb062018e1c.dl.dropboxusercontent.com/cd/0/get/At1PXjYERt6eW4cG6_ejwuTBHAvcaSQxymmiH2qnIpCaDCqvszTMSwOoa-XkYjDx3Tpp0BCFYHYWZlqOXqY2ZYfim43jjoT6z63lxtz0smqucbGbr3gnSaIZ3v60gfd-M_o/file?dl=1#'>
+        <p class="smallText">Click to</p>
+        <div class="upload-btn-wrapper">
+        <form action="/submit" method="post" id="form1" enctype="multipart/form-data">
+            <input type="file"name="file" id='files' form='form1' /><br>
+            <button type="submit" form="form1" value="Submit" class="btn">Upload a file</button>
+        </form>
+          </div>
+      </div>
+      <div class="Result">
+        <p>Result = {{Results}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+document.getElementById("files").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("image").src = e.target.result;
+    };
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+};
+</script>
+</body>
+</html>
